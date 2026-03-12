@@ -14,4 +14,4 @@ jobs:
           uses: actions/checkout@v3
 
         - name: Build Docker image
-           run: docker build -t cicd-docker-app ./app
+          run: docker build -t cicd-docker-app ./app
