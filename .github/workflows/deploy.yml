@@ -1,4 +1,4 @@
-name: CI-CD Docker Deployment
+name: CI-CD Docker Deployment to AWS EC2
 
 on:
   push:
@@ -6,12 +6,25 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
       runs-on: ubuntu-latest
 
       steps:
         - name: Checkout repository
           uses: actions/checkout@v3
 
-        - name: Build Docker image
-          run: docker build -t cicd-docker-app ./app
+        - name: Deploy to EC2 via SSH
+          uses: appleboy/ssh-action@v1.0.0
+          with:
+            host: ${{ secrets.EC2_HOST }}
+            username: ${{ secrets.EC2_USER }}
+            key: ${{ secrets.EC2_SSH_KEY }}
+            script: |
+               cd ci-cd-docker-aws-deployment
+
+               docker stop web-container || true
+               docker rm web-container || true
+
+               docker build -t devops-web .
+
+               docker run -d -p 8080:80 --name web-container devops-web
