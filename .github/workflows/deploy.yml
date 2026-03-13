@@ -22,6 +22,8 @@ jobs:
             script: |
                cd ci-cd-docker-aws-deployment
 
+               cd app
+               
                docker stop web-container || true
                docker rm web-container || true
 
