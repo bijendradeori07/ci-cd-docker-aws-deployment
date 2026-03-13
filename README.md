@@ -54,17 +54,22 @@ docker build --no-cache -t devops-web .
 docker run -d -p 8080:80 --name web-container devops-web
 ```
 
-## **Application**
-The application is a simple HTML website served through an Nginx Docker Container.
+## **Application Output**
+After successful CI/CD pipeline execution, the Docker container is deployed automatically on the AWS EC2 instance.
+
 ### Access Via:
 ```
 http://<ec2-public-ip>:8080
 ```
+
+### Deployment Result
+![Deployment-Website-Output](screenshots/deployment-website-output.png)
+
 ## **Key DevOps Concepts Demonstrated**
 - Continuous Integration
 - Continuous Deployment
 - Containerized Application
-- Infrastructured Automation
+- Infrastructure Automation
 - Remote Server Deployment via SSH
 - Automated Docker Builds
 
