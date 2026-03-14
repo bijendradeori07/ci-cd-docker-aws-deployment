@@ -1,7 +1,7 @@
 # **CI/CD Docker Deployment on AWS EC2 using GItHub Actions**
-This Projects demonstrates a complete **CI/CD Pipeline** for automatically deploying a dockerized web application to an AWS EC2 instance using **GitHub Actions**.
-
-Whenever code is pushed to GitHub repository, the pipeline automatically connects to the EC2 server, rebuilds the docker image, and redeploys the container.
+This project demonstrates a CI/CD pipeline for deploying a Dockerized static website to an AWS EC2 instance using GitHub Actions.
+Whenever code is pushed to the 'main' branch, GitHub Actions connect to the EC2 instance through SSH, syncs the latest source code, rebuilds the Docker Image, and redeploys the container automatically.
+During implementation, the project also involved real-world troubleshooting related to repository structure changes and EC2 public IP change issues.
 
 ## **Project Architecture**
 ```
@@ -89,8 +89,10 @@ http://<ec2-public-ip>:8080
 - Infrastructure Automation
 - Remote Server Deployment via SSH
 - Automated Docker Builds
+- GitHub Actions Workflow Automation
 
 ## **Future Improvements**
+- Attach an Elastic IP to the EC2 Instance to avoid public change after restart
 - DockerHub Image Registry Integration
 - Kubernetes Deployment
 - Infrastructure provisioning using Terraform
