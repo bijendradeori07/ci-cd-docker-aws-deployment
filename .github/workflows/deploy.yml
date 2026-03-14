@@ -28,7 +28,7 @@ jobs:
 
             docker rm -f web-container || true
 
-            docker build build --no-cache -t devops-web .
+            docker build --no-cache -t devops-web .
 
             docker run -d -p 8080:80 --name web-container devops-web
 
