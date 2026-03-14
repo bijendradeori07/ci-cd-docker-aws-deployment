@@ -23,8 +23,6 @@ jobs:
                cd ci-cd-docker-aws-deployment
 
                git pull origin main
-
-               cd app
                
                docker stop web-container || true
                docker rm web-container || true
