@@ -22,7 +22,9 @@ jobs:
           script: |
             cd /home/ubuntu/ci-cd-docker-aws-deployment
 
-            git pull origin main
+            git fetch origin
+
+            git reset --hard origin/main
 
             docker stop web-container || true
 
